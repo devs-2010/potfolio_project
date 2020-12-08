@@ -1,0 +1,46 @@
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#header .my_logo {
+    width: 60px;
+    margin-left: 2%;
+}
+
+#header .devs_names {
+    position: relative;
+    margin-left: -8px;
+    margin-top: 8px;
+}
+
+#header .devs_names #name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+}
+
+#header .devs_names #occupation {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+}
+
+#header .menu_icon {
+    background: #72aee0;
+    width: 50px;
+    height: max-content;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 2%;
+    color: white;
+    cursor: pointer;
+}
