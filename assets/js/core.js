@@ -12,7 +12,6 @@ function load_url(url, fun) {
             }
         },
         success: (data) => {
-            console.log(data);
             fun(data);
         },
 
@@ -31,7 +30,10 @@ function load_url(url, fun) {
             let new_node = $(data);
             $(el).after(new_node);
             $(el).remove();
-            new_node.attr('class', el.getAttribute('class'));
+            let attributes = $(el).prop('attributes');
+            $.each(attributes, (k,v) => {
+                new_node.attr(v.name, v.value);
+            });
             new_node.before(`<!-- ${el.outerHTML} -->`);
         })
     }
