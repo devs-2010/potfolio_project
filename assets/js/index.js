@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#close_icon').click(() => {
         $(popup_nav_menu).css({
             'animation-name': 'menu_popup_animation_reverse',
-            'transform': 'translate(100%, -100%)',
+            'transform': 'translate(40%, -100%)',
             'animation-iteration-count': '1',
 
         })

@@ -55,13 +55,13 @@ html, body {
     width: 500px;
     height: 500px;
     background: #72aee0;
-    transform: translate(100%, -100%);
+    transform: translate(40%, -100%);
     border-radius: 50%;
     top: 0;
     right: 0;
     z-index: 999;
     animation-iteration-count: 1;
-    animation-duration: 1s;
+    animation-duration: 600ms;
     animation-direction: normal;
     animation-timing-function: linear;
 
@@ -114,7 +114,7 @@ html, body {
 
 @keyframes menu_popup_animation {
     from {
-        transform: translate(100%, -100%);
+        transform: translate(40%, -100%);
         opacity: 0;
     }
 
@@ -127,7 +127,7 @@ html, body {
 
 @keyframes menu_popup_animation_reverse {
     to {
-        transform: translate(100%, -100%);
+        transform: translate(40%, -100%);
         opacity: 0;
     }
 
