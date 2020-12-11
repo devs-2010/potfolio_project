@@ -1,0 +1,139 @@
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+#header .my_logo {
+    width: 60px;
+    margin-left: 2%;
+}
+
+#header .devs_names {
+    position: relative;
+    margin-left: -8px;
+    margin-top: 8px;
+}
+
+#header .devs_names #name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+}
+
+#header .devs_names #occupation {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+}
+
+#header .menu_icon {
+    background: #72aee0;
+    width: 50px;
+    height: max-content;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#menu_icon {
+    margin-left: auto;
+    margin-right: 2%;
+}
+
+#header .popup_nav_menu {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #72aee0;
+    transform: translate(40%, -100%);
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    animation-iteration-count: 1;
+    animation-duration: 600ms;
+    animation-direction: normal;
+    animation-timing-function: linear;
+
+}
+
+#header .popup_nav_menu .nav_container {
+    position: absolute;
+    bottom: 28%;
+    left: 18%;
+    z-index: 1000;
+    color: white;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    justify-content: space-between;
+    margin: 10px 10px 0 0;
+
+}
+
+#header .popup_nav_menu .nav_container .close_icon {
+    width: 30px;
+    cursor: pointer;
+}
+
+#close_icon{
+    align-self: end;
+}
+
+#header .popup_nav_menu .nav_container .nav_item {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+#header .popup_nav_menu .nav_container .nav_item .indicator {
+    width: 4px;
+    height: 100%;
+    background-color: #72aee0;
+    margin-right: 4px;
+    transition: background-color 200ms 0ms linear;
+}
+
+#header .popup_nav_menu .nav_container .nav_item:hover .indicator {
+    background-color: #557daa;
+}
+
+@keyframes menu_popup_animation {
+    from {
+        transform: translate(40%, -100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(40%, -40%);
+        opacity: 1;
+    }
+
+}
+
+@keyframes menu_popup_animation_reverse {
+    to {
+        transform: translate(40%, -100%);
+        opacity: 0;
+    }
+
+    from {
+        transform: translate(40%, -40%);
+        opacity: 1;
+    }
+
+}
