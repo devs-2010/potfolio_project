@@ -22,7 +22,7 @@ function load_url(url, fun) {
 }
 
 // load svgs
-(function load_svgs() {
+function load_svgs() {
     let c_svg = $('c_svg');
     for (let i = 0; i < c_svg.length; i++) {
         let el = c_svg.get(i);
@@ -31,10 +31,17 @@ function load_url(url, fun) {
             $(el).after(new_node);
             $(el).remove();
             let attributes = $(el).prop('attributes');
-            $.each(attributes, (k,v) => {
+            $.each(attributes, (k, v) => {
+                if (v.name === 'href') return;
                 new_node.attr(v.name, v.value);
             });
+
+            new_node.attr('fill', 'currentColor');
             new_node.before(`<!-- ${el.outerHTML} -->`);
         })
     }
-})();
+}
+
+$(document).ready(function () {
+    load_svgs();
+});

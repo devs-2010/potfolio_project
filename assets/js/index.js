@@ -9,7 +9,7 @@ $(document).ready(function () {
 
         })
     });
-    console.log($('#menu_icon'));
+
     $('#menu_icon').click(() => {
         console.log('clicked');
         $(popup_nav_menu).css({
