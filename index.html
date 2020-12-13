@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="assets/css/index.css">
 
         <!-- Google fonts -->
@@ -75,6 +75,25 @@
                 <c_svg class="instagram" href="assets/svgs/instagram.svg"></c_svg>
                 <div class="bottom_underline"></div>
             </a>
+        </section>
+
+        <section class="chat_section">
+            <div class="chat_box">
+                <div class="chat_box_close">
+                    <c_svg href="assets/svgs/close.svg"></c_svg>
+                </div>
+                <label for="chat_name">Name:</label>
+                <input id="chat_name" name="chat_name" type="text" placeholder="Name">
+                <label for="chat_email">E-mail:</label>
+                <input id="chat_email" name="chat_email" type="text" placeholder="E-mail">
+                <label for="chat_message"></label>
+                <textarea name="chat_message" id="chat_message" cols="30" rows="10" placeholder="Message"></textarea>
+
+                <button id="submit">SEND</button>
+            </div>
+            <div class="chat_btn">
+                <c_svg class="chat_icon" href="assets/svgs/chat.svg"></c_svg>
+            </div>
         </section>
     </body>
     <script type="application/javascript" src="assets/js/core.js"></script>

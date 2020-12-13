@@ -1,4 +1,4 @@
-let baseURL = `${location.protocol}//${location.hostname}${location.port ? ":" + location.port : ""}/`
+let baseURL = location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + '/';
 
 function load_url(url, fun) {
     // function to get the contents of url raw using AJAX
@@ -37,7 +37,7 @@ function load_svgs() {
             });
 
             new_node.attr('fill', 'currentColor');
-            new_node.before(`<!-- ${el.outerHTML} -->`);
+            new_node.before("<!-- " + el.outerHTML + "-->");
         })
     }
 }
@@ -45,3 +45,10 @@ function load_svgs() {
 $(document).ready(function () {
     load_svgs();
 });
+
+function send_chat_POST_request(name, email, message) {
+    // TODO: re-eval this method
+    $.ajax({
+        type: 'POST'
+    });
+}
