@@ -297,9 +297,11 @@ a, a:hover {
     left: 50%;
     padding: 8px 16px;
     color: white;
-    font-size: 18px;
+    font-size: 24px;
     transform: translateX(-50%);
     top: 0;
+    width: 300px;
+    text-align: center;
 }
 
 .floating_info_popup--error{
