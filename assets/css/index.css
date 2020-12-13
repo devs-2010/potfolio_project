@@ -291,7 +291,24 @@ a, a:hover {
     border: 1px solid black;
     height: 20px;
 }
+/* ====== floating pop-up*===== */
+.floating_info_popup{
+    position: absolute;
+    left: 50%;
+    padding: 8px 16px;
+    color: white;
+    font-size: 18px;
+    transform: translateX(-50%);
+    top: 0;
+}
 
+.floating_info_popup--error{
+    background-color: #ff5a5a;
+}
+
+.floating_info_popup--success{
+    background-color: #00a500;
+}
 
 /*TODO: hover color transition for menu icon*/
 

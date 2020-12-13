@@ -1,4 +1,14 @@
 let baseURL = location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + '/';
+let floating_info_popup = '<div class="floating_info_popup">%s</div>';
+
+
+function parse(str) {
+    let args = [].slice.call(arguments, 1),
+        i = 0;
+
+    return str.replace(/%s/g, () => args[i++]);
+}
+
 
 function load_url(url, fun) {
     // function to get the contents of url raw using AJAX
@@ -49,6 +59,27 @@ $(document).ready(function () {
 function send_chat_POST_request(name, email, message) {
     // TODO: re-eval this method
     $.ajax({
-        type: 'POST'
+        type: 'POST',
+        url: '',
+        success: function (){
+            let s = parse(floating_info_popup, 'Success Sent');
+            let el = $(s);
+            el.addClass('floating_info_popup--success');
+            $('body').append(el);
+            setTimeout(() => {
+                el.remove()
+            }, 3000);
+        },
+        error: function () {
+            let s = parse(floating_info_popup, 'Error Failed');
+            let el = $(s);
+            el.addClass('floating_info_popup--error');
+            $('body').append(el);
+            setTimeout(() => {
+                el.remove()
+            }, 3000);
+        },
+        dataType: '',
+        data: "",
     });
 }

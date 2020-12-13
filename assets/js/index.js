@@ -32,7 +32,6 @@ $(document).ready(function () {
     });
 
     $('#menu_icon').click(() => {
-        console.log('clicked');
         $(popup_nav_menu).css({
             'animation-name': 'menu_popup_animation',
             'transform': 'translate(40%, -40%)',
