@@ -5,6 +5,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #header {
@@ -39,7 +40,7 @@ html, body {
 #header .menu_icon {
     background: #72aee0;
     width: 50px;
-    height: max-content;
+    height: 50px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
@@ -89,8 +90,9 @@ html, body {
     cursor: pointer;
 }
 
-#close_icon{
-    align-self: end;
+#close_icon {
+    align-self: end !important;
+    margin-left: auto;
 }
 
 #header .popup_nav_menu .nav_container .nav_item {
@@ -98,6 +100,10 @@ html, body {
     color: white;
     display: flex;
     flex-direction: row;
+}
+
+#header .popup_nav_menu .nav_container .nav_item:hover {
+    transform: scale(1.05);
 }
 
 #header .popup_nav_menu .nav_container .nav_item .indicator {
@@ -137,3 +143,176 @@ html, body {
     }
 
 }
+
+.socials_icons_container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.socials_icons_container .social_icon {
+    width: 32px;
+    margin: 0 10px;
+}
+
+.socials_icons_container .social_icon:hover {
+    transform: scale(1.1);
+}
+
+.socials_icons_container .social_icon .bottom_underline {
+    height: 3px;
+    width: 100%;
+    background-color: inherit;
+    transition: background-color 200ms 0ms linear;
+}
+
+.socials_icons_container .social_icon:hover .bottom_underline {
+    background-color: grey;
+}
+
+.mail {
+    color: #FA4C4C;
+}
+
+.facebook {
+    color: #1E4BEA;
+}
+
+.linkedin {
+    color: #33309F;
+}
+
+.github {
+    color: black;
+}
+
+.twitter {
+    color: #12B9D0;
+}
+
+.instagram {
+    color: #DF1515;
+}
+
+/*===== Section Chat btn=====*/
+.chat_section {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_section .chat_btn {
+    margin-top: 10px;
+    border-radius: 50%;
+    background-color: #72aee0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 200ms 0ms linear;
+    width: max-content;
+    height: max-content;
+    margin-left: auto;
+}
+
+.chat_section .chat_btn:hover{
+    background-color: #5780ae;
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.chat_btn .chat_icon {
+    color: white;
+    width: 50px;
+    height: 50px;
+    padding: 12px;
+    transform: translate(1px, 2px);
+}
+
+
+.chat_section .chat_box{
+    border: 1px solid #bfbfbf;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    height: 0;
+    display: none;
+    opacity: 0;
+    transition: all 500ms;
+    flex-direction: inherit;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat_section .chat_box--shown{
+    height: auto;
+    opacity: 1;
+    display: flex;
+}
+.chat_box input{
+    margin-bottom: 16px;
+    height: 28px;
+    padding-left: 8px;
+    border: inherit;
+    border-radius: 5px;
+}
+
+.chat_box textarea{
+    padding-left: 8px;
+    padding-top: 8px;
+    border: inherit;
+    border-radius: 5px;
+}
+
+.chat_box button{
+    border-radius: 5px;
+    background-color: #72aee0;
+    padding: 8px 10px;
+    width: max-content;
+    margin-left: auto;
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 1px 1px 1px grey;
+    cursor: pointer;
+    border: 0;
+}
+.chat_box .chat_box_close{
+    width: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    border: 1px solid black;
+    height: 20px;
+}
+/* ====== floating pop-up*===== */
+.floating_info_popup{
+    position: absolute;
+    left: 50%;
+    padding: 8px 16px;
+    color: white;
+    font-size: 24px;
+    transform: translateX(-50%);
+    top: 0;
+    width: 300px;
+    text-align: center;
+}
+
+.floating_info_popup--error{
+    background-color: #ff5a5a;
+}
+
+.floating_info_popup--success{
+    background-color: #00a500;
+}
+
+/*TODO: hover color transition for menu icon*/
+
+
+
