@@ -215,6 +215,7 @@ a, a:hover {
     right: 2%;
     display: flex;
     flex-direction: column;
+    z-index: 999;
 }
 
 .chat_section .chat_btn {
@@ -305,13 +306,13 @@ a, a:hover {
 .floating_info_popup {
     position: absolute;
     left: 50%;
-    padding: 8px 16px;
+    padding: 8px 32px;
     color: white;
     font-size: 24px;
     transform: translateX(-50%);
-    top: 0;
-    width: 300px;
+    /*top: 0;*/
     text-align: center;
+    z-index: 999;
 }
 
 .floating_info_popup--error {
@@ -366,6 +367,7 @@ a, a:hover {
 }
 .dev_desc p{
     text-align: justify;
+    line-height: 1.4;
 }
 
 .dev_desc h3{
