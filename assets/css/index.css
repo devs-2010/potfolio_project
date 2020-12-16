@@ -390,4 +390,14 @@ a, a:hover {
 
 }
 
+.development_text{
+    font-size: 22px;
+    background: #00b400;
+    border: 1px solid green;
+    padding: 20px 5px;
+    color: white;
+    border-radius: 5px;
+    max-width: 90%;
+}
+
 
