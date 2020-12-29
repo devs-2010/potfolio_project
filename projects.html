@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="assets/css/projects.css">
+
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap"
+              rel="stylesheet">
+
+        <script type="application/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
+        <title>DENNIZ WARUI</title>
+    </head>
+    <body>
+        <!-- #header contains all the header elements ie logo name and menu icon -->
+        <section id="header">
+            <!-- use custom tags to load svgs-->
+            <c_svg class="my_logo" href="assets/svgs/logo.svg"></c_svg>
+            <div class="devs_names">
+                <!-- Conatns name and software developer    -->
+                <div id="name">DENNIZ WARUI</div>
+                <div id="occupation">Software Developer</div>
+            </div>
+            <div id="menu_icon">
+                <c_svg class="menu_icon" href="assets/svgs/menu.svg"></c_svg>
+            </div>
+            <div class="popup_nav_menu">
+                <div class="nav_container">
+                    <div id="close_icon">
+                        <c_svg class="close_icon" href="assets/svgs/close.svg"></c_svg>
+                    </div>
+                    <a href="#" class="nav_item">
+                        <div class="indicator"></div>
+                        HOME
+                    </a>
+                    <a href="#" class="nav_item">
+                        <div class="indicator"></div>
+                        PROJECTS
+                    </a>
+                    <a href="#social_icons_container" class="nav_item">
+                        <div class="indicator"></div>
+                        CONTACT-US
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <section class="project_body">
+            <div class="project_slider">
+                <div class="project_card">
+                    <div class="project_header">
+                        <!-- contains image and name -->
+                        <span class="project_name">JAVA File Transfer.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="socials_icons_container" id="social_icons_container">
+            <a class="social_icon" href="#">
+                <c_svg class="mail" href="assets/svgs/mail.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+            <a class="social_icon" href="#">
+                <c_svg class="facebook" href="assets/svgs/facebook.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+            <a class="social_icon" href="#">
+                <c_svg class="linkedin" href="assets/svgs/linkedin.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+            <a class="social_icon" href="#">
+                <c_svg class="github" href="assets/svgs/github.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+            <a class="social_icon" href="#">
+                <c_svg class="twitter" href="assets/svgs/twitter.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+            <a class="social_icon" href="#">
+                <c_svg class="instagram" href="assets/svgs/instagram.svg"></c_svg>
+                <div class="bottom_underline"></div>
+            </a>
+        </section>
+
+        <section class="chat_section">
+            <div class="chat_box">
+                <div class="chat_box_close">
+                    <c_svg href="assets/svgs/close.svg"></c_svg>
+                </div>
+                <label for="chat_name">Name:</label>
+                <input id="chat_name" name="chat_name" type="text" placeholder="Name">
+                <label for="chat_email">E-mail:</label>
+                <input id="chat_email" name="chat_email" type="text" placeholder="E-mail">
+                <label for="chat_message"></label>
+                <textarea name="chat_message" id="chat_message" cols="30" rows="10" placeholder="Message"></textarea>
+
+                <button id="submit">SEND</button>
+            </div>
+            <div class="chat_btn">
+                <c_svg class="chat_icon" href="assets/svgs/chat.svg"></c_svg>
+            </div>
+        </section>
+    </body>
+    <script type="application/javascript" src="assets/js/core.js"></script>
+    <script type="application/javascript" src="assets/js/index.js"></script>
+    <script type="application/javascript" src="assets/js/projects.js"></script>
+</html>
