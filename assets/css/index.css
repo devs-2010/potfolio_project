@@ -4,16 +4,24 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #header {
+    position: sticky;
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;
     width: 100%;
+    z-index: 900;
+    top: 0;
+    background-color: white;
+    margin-bottom: 5px;
 }
 
 #header .my_logo {
@@ -60,7 +68,6 @@ html, body {
     border-radius: 50%;
     top: 0;
     right: 0;
-    z-index: 999;
     animation-iteration-count: 1;
     animation-duration: 600ms;
     animation-direction: normal;
@@ -145,13 +152,12 @@ html, body {
 }
 
 .socials_icons_container {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 10px;
+    height: 40px;
+    margin: 10px 0;
 }
 
 a, a:hover {
@@ -205,17 +211,18 @@ a, a:hover {
 /*===== Section Chat btn=====*/
 .chat_section {
     position: absolute;
-    bottom: 2%;
+    bottom: 3%;
     right: 2%;
     display: flex;
     flex-direction: column;
+    z-index: 999;
 }
 
 .chat_section .chat_btn {
     margin-top: 10px;
     border-radius: 50%;
     background-color: #72aee0;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 200ms 0ms linear;
     width: max-content;
@@ -223,10 +230,10 @@ a, a:hover {
     margin-left: auto;
 }
 
-.chat_section .chat_btn:hover{
+.chat_section .chat_btn:hover {
     background-color: #5780ae;
     transform: scale(1.1, 1.1);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .chat_btn .chat_icon {
@@ -238,25 +245,27 @@ a, a:hover {
 }
 
 
-.chat_section .chat_box{
+.chat_section .chat_box {
     border: 1px solid #bfbfbf;
     padding: 8px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     height: 0;
     display: none;
     opacity: 0;
     transition: all 500ms;
     flex-direction: inherit;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: white;
 }
 
-.chat_section .chat_box--shown{
+.chat_section .chat_box--shown {
     height: auto;
     opacity: 1;
     display: flex;
 }
-.chat_box input{
+
+.chat_box input {
     margin-bottom: 16px;
     height: 28px;
     padding-left: 8px;
@@ -264,14 +273,14 @@ a, a:hover {
     border-radius: 5px;
 }
 
-.chat_box textarea{
+.chat_box textarea {
     padding-left: 8px;
     padding-top: 8px;
     border: inherit;
     border-radius: 5px;
 }
 
-.chat_box button{
+.chat_box button {
     border-radius: 5px;
     background-color: #72aee0;
     padding: 8px 10px;
@@ -284,35 +293,132 @@ a, a:hover {
     cursor: pointer;
     border: 0;
 }
-.chat_box .chat_box_close{
+
+.chat_box .chat_box_close {
     width: 20px;
     margin-left: auto;
     cursor: pointer;
     border: 1px solid black;
     height: 20px;
 }
+
 /* ====== floating pop-up*===== */
-.floating_info_popup{
+.floating_info_popup {
     position: absolute;
     left: 50%;
-    padding: 8px 16px;
+    padding: 8px 32px;
     color: white;
     font-size: 24px;
     transform: translateX(-50%);
-    top: 0;
-    width: 300px;
+    /*top: 0;*/
     text-align: center;
+    z-index: 999;
 }
 
-.floating_info_popup--error{
+.floating_info_popup--error {
     background-color: #ff5a5a;
 }
 
-.floating_info_popup--success{
+.floating_info_popup--success {
     background-color: #00a500;
 }
 
 /*TODO: hover color transition for menu icon*/
 
+/*===== homepage BODY ========*/
+.home_body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home_body .image_container {
+    display: block;
+    height: calc(0.6 * 99vmin) !important;
+}
+
+.image_container .image_bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    background-color: black;
+}
+
+.image_container .image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    transform: translate(20px, 20px);
+}
+
+.image_container .image img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.home_body .dev_desc {
+    width: max-content;
+    margin-left: calc(0.08 * 100vw);
+}
+.dev_desc p{
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.dev_desc h3{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+@media (max-width: 676px) {
+    .home_body{
+        flex-direction: column;
+    }
+
+    .home_body .dev_desc{
+        margin-left: 0;
+        margin-top: calc(0.08 * 100vh);
+        width: 90%;
+    }
 
 
+}
+
+
+.dev_desc ul{
+    margin: 8px 0;
+}
+
+.dev_desc ul li{
+    margin: 2px 0;
+}
+
+.dev_desc .desc_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev_desc .project_link{
+    margin-left: auto;
+}
+
+.dev_desc .project_link button{
+    padding: 8px 10px;
+    transition:  background-color 200ms linear 0ms;
+    background-color: #72aee0;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.dev_desc .project_link button:hover{
+    background: #80c0f6;
+}
