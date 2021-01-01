@@ -410,7 +410,8 @@ a, a:hover {
 
 .dev_desc .project_link button{
     padding: 8px 10px;
-    background: #72aee0;
+    transition:  background-color 200ms linear 0ms;
+    background-color: #72aee0;
     border: none;
     font-size: 20px;
     border-radius: 5px;
