@@ -1,0 +1,85 @@
+limit_req_zone $binary_remote_addr zone=limit_load_balancer:10m rate=10r/s;
+proxy_cache_path /var/www/cache levels=1:2 keys_zone=load_balancer_cache:100m max_size=1g inactive=60m use_temp_path=off;
+
+upstream potfolio_website{
+	least_conn;
+	
+	server 18.191.197.207:8888;
+	server 40.127.5.232:8888 weight=3;
+}
+
+
+server{
+    client_body_timeout 5s;
+    client_header_timeout 5s;
+    
+    listen 80;
+    listen [::]:80;
+    server_name dennizwarui.me www.dennizwarui.me;
+
+    location ~\.(ini|log|conf|ht|php)$ {
+    	deny all;
+    	error_page 503 =404 / ;
+    }
+
+    location / {
+       limit_req zone=limit_load_balancer burst=30 nodelay;
+       return 301 https://dennizwarui.me:443$uri;
+    }
+}
+
+
+server{
+    client_body_timeout 5s;
+    client_header_timeout 5s;
+    
+    listen 443 ssl;
+
+    ssl on;
+    ssl_certificate /home/denniz/ssl.crt;
+    ssl_certificate_key /home/denniz/server.key;
+    server_name dennizwarui.me www.dennizwarui.me;
+    
+    location ~\.(ini|log|conf|ht|php|txt)$ {
+    	deny all;
+    	error_page 503 =404 / ;
+    }
+
+    location ~* /config/(.*) {
+            limit_req zone=limit_load_balancer;
+            deny all;
+            error_page 503 =400 / ;
+    }
+
+    location ~* /tracking/(.*) {
+        limit_req zone=limit_load_balancer;
+        deny all;
+        error_page 503 =400 / ;
+    }
+    
+#    location /projects {
+#    	rewrite ^/projects$ /projects.html;
+#    }
+    
+    location / {
+    	limit_req zone=limit_load_balancer burst=30 nodelay;
+    	proxy_cache load_balancer_cache;
+    	
+    	proxy_pass https://potfolio_website;
+    	proxy_ssl_certificate /home/denniz/ssl.crt;
+    	proxy_ssl_certificate_key /home/denniz/server.key;
+    	
+#       index index.html;
+#       try_files $uri $uri/ =404;
+    }
+    
+}
+
+server{
+    listen 80 default_server;
+    server_name "";
+    return 444;
+}
+
+# END OF LOAD BALANCER
+

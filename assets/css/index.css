@@ -362,7 +362,7 @@ a, a:hover {
 }
 
 .home_body .dev_desc {
-    width: 40%;
+    width: max-content;
     margin-left: calc(0.08 * 100vw);
 }
 .dev_desc p{
@@ -391,3 +391,34 @@ a, a:hover {
 }
 
 
+.dev_desc ul{
+    margin: 8px 0;
+}
+
+.dev_desc ul li{
+    margin: 2px 0;
+}
+
+.dev_desc .desc_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dev_desc .project_link{
+    margin-left: auto;
+}
+
+.dev_desc .project_link button{
+    padding: 8px 10px;
+    transition:  background-color 200ms linear 0ms;
+    background-color: #72aee0;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.dev_desc .project_link button:hover{
+    background: #80c0f6;
+}

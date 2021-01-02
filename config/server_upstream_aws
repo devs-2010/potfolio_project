@@ -1,0 +1,23 @@
+server {
+    client_body_timeout 5s;
+    client_header_timeout 5s;
+    
+    listen 8888 ssl;
+    server_name dennizwarui.me www.dennizwarui.me;
+    
+    allow 40.127.5.232;
+    deny all;
+    
+    ssl_certificate /home/ubuntu/ssl.crt;
+    ssl_certificate_key /home/ubuntu/server.key;
+    root /home/ubuntu/potfolio_project;
+    
+    location /projects {
+    	rewrite ^/projects$ /projects.html;
+    }
+    
+    location / {
+       index index.html;
+       try_files $uri $uri/ =404;        
+    }
+}
