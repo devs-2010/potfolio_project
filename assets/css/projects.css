@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: scroll;
+    position: relative;
 }
 
 .project_slider .project_card {
