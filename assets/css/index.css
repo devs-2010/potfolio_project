@@ -365,23 +365,24 @@ a, a:hover {
     width: max-content;
     margin-left: calc(0.08 * 100vw);
 }
-.dev_desc p{
+
+.dev_desc p {
     text-align: justify;
     line-height: 1.4;
 }
 
-.dev_desc h3{
+.dev_desc h3 {
     font-family: 'Bebas Neue', cursive;
     font-size: 48px;
     margin: 10px 0;
 }
 
 @media (max-width: 676px) {
-    .home_body{
+    .home_body {
         flex-direction: column;
     }
 
-    .home_body .dev_desc{
+    .home_body .dev_desc {
         margin-left: 0;
         margin-top: calc(0.08 * 100vh);
         width: 90%;
@@ -391,11 +392,11 @@ a, a:hover {
 }
 
 
-.dev_desc ul{
+.dev_desc ul {
     margin: 8px 0;
 }
 
-.dev_desc ul li{
+.dev_desc ul li {
     margin: 2px 0;
 }
 
@@ -404,13 +405,13 @@ a, a:hover {
     flex-direction: column;
 }
 
-.dev_desc .project_link{
+.dev_desc .project_link {
     margin-left: auto;
 }
 
-.dev_desc .project_link button{
+.dev_desc .project_link button {
     padding: 8px 10px;
-    transition:  background-color 200ms linear 0ms;
+    transition: background-color 200ms linear 0ms;
     background-color: #72aee0;
     border: none;
     font-size: 20px;
@@ -419,6 +420,27 @@ a, a:hover {
     color: white;
 }
 
-.dev_desc .project_link button:hover{
+.dev_desc .project_link button:hover {
     background: #80c0f6;
+}
+
+.hover_btn {
+    cursor: pointer;
+    transition: background-color 200ms linear 0ms;
+    background-color: #72aee0;
+}
+
+.hover_btn:hover {
+    background-color: #80c0f6;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

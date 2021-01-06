@@ -1,3 +1,76 @@
-.project_body{
+.project_body {
+    position: relative;
     height: 100%;
+}
+
+.project_body .project_slider {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project_slider .project_card {
+    height: 90%;
+    border-radius: 5px;
+    /*border: 1px solid black;*/
+    width: 250px;
+}
+
+.project_card .project_header {
+    height: 40%;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    width: 100%;
+    position: relative;
+    color: white;
+    background-size: contain;
+}
+
+.project_card .project_body {
+    margin: 0 8px;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+}
+
+.project_card .project_body .project_desc {
+    flex: 1;
+    text-overflow-ellipsis: true;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.project_body .project_name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
+
+.project_body .more_btn {
+    width: max-content;
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-left: auto;
+    margin-bottom: 8px;
+}
+
+.project_body .project_banners{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+.project_banners .banner{
+    padding: 1px 4px;
+    background-color: #72aee0;
+    border-radius: 2px;
+    color: white;
+    margin: 1px 3px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
 }
