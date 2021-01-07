@@ -1,5 +1,7 @@
 /*Fetch request to projects.json*/
-let project_slider = 0;
+let project_slider = null,
+    tag_container = null,
+    valid_tags = new Array();
 
 function generate_card_code(val) {
     let banner_code = '';
@@ -67,6 +69,18 @@ function hide_scrollbar() {
     // project_slider.css({'paddingBottom': (project_slider.get(0).offsetHeight - project_slider.get(0).clientHeight) + "px"})
 }
 
+function append_tag(value) {
+    if (valid_tags.indexOf(value) !== -1) return;
+    valid_tags.push(value);
+    console.log('in');
+    let tag = $(`<div class="tag hover_btn" for="${value}">${value}</div>`);
+    tag.click(function () {
+        // Show selected tag
+    });
+
+    tag_container.append(tag);
+}
+
 function getProjects() {
     $.ajax({
         type: 'GET',
@@ -75,6 +89,9 @@ function getProjects() {
             if (!data) return;
             data.projects.forEach(function (val, i) {
                 project_slider.append($(generate_card_code(val)))
+                val.tags.forEach((x) => {
+                    append_tag(x.toUpperCase());
+                });
             });
             bind_listeners_for_scroll();
             hide_scrollbar();
@@ -87,5 +104,7 @@ function getProjects() {
 
 $(document).ready(function () {
     project_slider = $('.project_slider');
+    tag_container = $('.tag_container');
+    append_tag("All".toUpperCase());
     getProjects();
 });
