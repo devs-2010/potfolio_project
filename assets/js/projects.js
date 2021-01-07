@@ -1,4 +1,6 @@
 /*Fetch request to projects.json*/
+let project_slider = 0;
+
 function generate_card_code(val) {
     let banner_code = '';
     val.tags.forEach((i) => {
@@ -30,37 +32,39 @@ function bind_listeners_for_scroll() {
         btn_slide_right = $('#slide_right');
 
     function eval_scroll() {
-        if ($(projects_slider).get(0).scrollLeft === $(projects_slider).get(0).scrollLeftMax) {
+        if (projects_slider.get(0).scrollLeft === projects_slider.get(0).scrollLeftMax) {
             btn_slide_right.css({"display": "none"});
         } else {
             btn_slide_right.css({"display": "block"});
         }
 
-        if ($(projects_slider).get(0).scrollLeft === 0) {
+        if (projects_slider.get(0).scrollLeft === 0) {
             btn_slide_left.css({"display": "none"});
         } else {
             btn_slide_left.css({"display": "block"});
         }
+
+        console.log(projects_slider.get(0).scrollLeft, projects_slider.get(0).scrollLeftMax)
     }
 
-    eval_scroll();
+    // eval_scroll();
     btn_slide_left.click(function () {
         projects_slider.animate({
-            scrollLeft: "-=" + (projects_slider.width() * 1.1),
-        }, 300, function () {
-            eval_scroll();
-        })
+            scrollLeft: "-=" + (projects_slider.width() / 1.5) + "px",
+        }, 300);
     });
 
     btn_slide_right.click(function () {
         projects_slider.animate({
-            scrollLeft: "+=" + (projects_slider.width() * 1.1),
-        }, 300, function () {
-            eval_scroll()
-        })
+            scrollLeft: "+=" + (projects_slider.width() / 1.5) + "px",
+        }, 300)
     });
 
 
+}
+
+function hide_scrollbar() {
+    // project_slider.css({'paddingBottom': (project_slider.get(0).offsetHeight - project_slider.get(0).clientHeight) + "px"})
 }
 
 function getProjects() {
@@ -69,11 +73,11 @@ function getProjects() {
         url: '/projects.json',
         success: function (data) {
             if (!data) return;
-            let project_slider = $('.project_slider');
-            data.projects.forEach(function (val, i){
+            data.projects.forEach(function (val, i) {
                 project_slider.append($(generate_card_code(val)))
             });
             bind_listeners_for_scroll();
+            hide_scrollbar();
         },
         error: function (e) {
             console.log(e)
@@ -82,5 +86,6 @@ function getProjects() {
 }
 
 $(document).ready(function () {
+    project_slider = $('.project_slider');
     getProjects();
 });
