@@ -1,26 +1,27 @@
 /*Fetch request to projects.json*/
 let project_slider = null,
     tag_container = null,
-    valid_tags = new Array();
+    valid_tags = new Array(),
+    projects_cards = new Array();
 
-function generate_card_code(val) {
+function generate_card_code(json) {
     let banner_code = '';
-    val.tags.forEach((i) => {
+    json.tags.forEach((i) => {
         banner_code += `<div class="banner">${i.toUpperCase()}</div>\n`
     });
 
     return `<div class="card_container">
                     <div class="card project_card">
-                        <div class="project_header" style="background-image: url('${val.images[0]}');">
+                        <div class="project_header" style="background-image: url('${json.images[0]}');">
                             <!-- contains image and name -->
                         </div>
                         <div class="project_card_body">
                             <div class="project_banners">
                                 ${banner_code}
                             </div>
-                            <span class="project_name">${val.name}</span>
+                            <span class="project_name">${json.name}</span>
                             <p class="project_desc">
-                                ${val.description}
+                                ${json.description}
                             </p>
                             <button class="more_btn hover_btn">Explore</button>
                         </div>
@@ -69,16 +70,42 @@ function hide_scrollbar() {
     // project_slider.css({'paddingBottom': (project_slider.get(0).offsetHeight - project_slider.get(0).clientHeight) + "px"})
 }
 
-function append_tag(value) {
-    if (valid_tags.indexOf(value) !== -1) return;
-    valid_tags.push(value);
-    console.log('in');
-    let tag = $(`<div class="tag hover_btn" for="${value}">${value}</div>`);
-    tag.click(function () {
+function toggle_visibility_card(tag) {
+    if (tag === "ALL") {
+        // set all cards to display: block;
+        projects_cards.forEach(function (val) {
+            val.css({"display": "flex"});
+            setTimeout(function () {
+                val.css({'visibility': "visible", "opacity": "1"})
+            }, 200);
+        })
+    } else {
+        projects_cards.forEach(function (val) {
+            if (val.tags.indexOf(tag) === -1) {
+                val.css({'visibility': "invisible", "opacity": "0"});
+                setTimeout(function () {
+                    val.css({"display": "none"})
+                }, 200)
+            } else {
+                val.css({"display": "flex"});
+                setTimeout(function () {
+                    val.css({'visibility': "visible", "opacity": "1"})
+                }, 200);
+            }
+        })
+    }
+}
+
+function append_tag(tag) {
+    if (valid_tags.indexOf(tag) !== -1) return;
+    valid_tags.push(tag);
+    let _tag = $(`<div class="tag hover_btn" for="${tag}">${tag}</div>`);
+    _tag.click(function () {
         // Show selected tag
+        toggle_visibility_card(this.getAttribute("for"));
     });
 
-    tag_container.append(tag);
+    tag_container.append(_tag);
 }
 
 function getProjects() {
@@ -88,7 +115,13 @@ function getProjects() {
         success: function (data) {
             if (!data) return;
             data.projects.forEach(function (val, i) {
-                project_slider.append($(generate_card_code(val)))
+                let card = $(generate_card_code(val));
+                card.tags = val.tags.map((x) => {
+                    return x.toUpperCase();
+                });
+
+                projects_cards.push(card);
+                project_slider.append(card);
                 val.tags.forEach((x) => {
                     append_tag(x.toUpperCase());
                 });

@@ -7,6 +7,13 @@
       "tags": ["java", "swing", "css"],
       "source_code": "",
       "download": ""
+    },{
+      "name" : "Sample name",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dignissimos doloribus eaque est, et, facere illo inventore minima molestiae officiis quasi sed sit temporibus, ut voluptates. Laudantium pariatur vitae voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dignissimos doloribus eaque est, et, facere illo inventore minima molestiae officiis quasi sed sit temporibus, ut voluptates. Laudantium pariatur vitae voluptates.",
+      "images": ["assets/imgs/project_img.jpg","assets/imgs/project_img.jpg","assets/imgs/project_img.jpg"],
+      "tags": ["java", "Html", "css"],
+      "source_code": "",
+      "download": ""
     }
   ]
 }
